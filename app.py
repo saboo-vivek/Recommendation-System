@@ -81,7 +81,7 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html', suggestions=get_suggestions())
+    return render_template('templates/home.html', suggestions=get_suggestions())
 
 
 @app.route("/similarity", methods=["POST"])
@@ -131,7 +131,7 @@ def recommend():
         movie_reviews = dict(zip(reviews, review_sentiments))
 
         # Render template with data
-        return render_template('recommend.html', **details, movie_cards=movie_cards, reviews=movie_reviews,
+        return render_template('templates/recommend.html', **details, movie_cards=movie_cards, reviews=movie_reviews,
                                casts=casts, cast_details=cast_details)
 
     except Exception as e:
